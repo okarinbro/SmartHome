@@ -5,7 +5,7 @@
 #
 Adapter1.Endpoints=tcp -h localhost -p 10000
 
-Adapter1.ThreadPool.Size=2
+Adapter1.ThreadPool.Size=1
 
 #
 # Warn about connection exceptions

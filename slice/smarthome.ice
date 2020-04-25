@@ -18,11 +18,9 @@ module Smart
   exception DeviceTurnedOff{
     string reason;
   }
-
   exception ElementNotFound{
     string reason;
   }
-
   exception DeviceCannotBeStarted{
     string reason;
   }
@@ -71,6 +69,12 @@ module Smart
    {
        style getStyle() throws DeviceTurnedOff;
        void setStyle(style currentStyle) throws IllegalArgument, DeviceTurnedOff;
+   }
+
+   sequence<string> devices;
+   interface DevicesProvider
+   {
+       devices getDevices();
    }
 
 };

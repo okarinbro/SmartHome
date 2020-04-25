@@ -1,8 +1,7 @@
 import com.zeroc.Ice.Communicator
 import com.zeroc.Ice.Util
-import locators.CamServantLocator
-import locators.CoolingServantLocator
-import locators.WashServantLocator
+import locators.DeviceProviderLocatorImpl
+import locators.ServantLocatorImpl
 import kotlin.system.exitProcess
 
 class Server(val args: Array<String>) {
@@ -12,9 +11,8 @@ class Server(val args: Array<String>) {
         try {
             communicator = Util.initialize(args)
             val adapter = communicator.createObjectAdapter("Adapter1");
-            adapter.addServantLocator(CoolingServantLocator(), "cooling")
-            adapter.addServantLocator(WashServantLocator(), "wash")
-            adapter.addServantLocator(CamServantLocator(), "cam")
+            adapter.addServantLocator(ServantLocatorImpl(), "smart")
+            adapter.addServantLocator(DeviceProviderLocatorImpl(), "provider")
             adapter.activate()
             communicator.waitForShutdown()
         } catch (e: Exception) {
