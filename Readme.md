@@ -6,4 +6,4 @@
 ##### slice2py --output-dir client slice/smarthome.ice
 
 ##### Using client.py:
-![image](https://user-images.githubusercontent.com/37248877/80373644-a819f700-8895-11ea-92f7-ed267078d33a.png)
+![image](https://user-images.githubusercontent.com/37248877/80373863-00e98f80-8896-11ea-8ea6-efce08445929.png)
