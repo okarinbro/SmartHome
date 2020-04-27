@@ -10,8 +10,8 @@ open class SmartPTZCameraI : SmartDeviceI(), SmartPTZCamera {
 
     override fun setPTZ(state: CameraState?, current: Current?) {
         validateState()
-        if (state!!.h < 0 || state.r < 0 || state.zoom < 0) {
-            throw IllegalArgument("Settings must not be negative numbers")
+        if (state == null || state.h < 0 || state.r < 0 || state.zoom < 0) {
+            throw IllegalArgument("Settings must not be negative numbers or null")
         }
         this.state = state
     }

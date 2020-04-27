@@ -2,6 +2,7 @@ package devices
 
 import Smart.DeviceFull
 import Smart.ElementNotFound
+import Smart.IllegalArgument
 import Smart.SmartFridge
 import com.zeroc.Ice.Current
 import java.util.*
@@ -15,7 +16,9 @@ open class SmartFridgeI : SmartDeviceI(), SmartFridge {
         if (products.size == maxSize) {
             throw DeviceFull("Maximum size of device ($maxSize) has been reached.")
         } else {
-            products.add(name!!)
+            if (name == null)
+                throw IllegalArgument("name canot be null")
+            products.add(name)
         }
     }
 

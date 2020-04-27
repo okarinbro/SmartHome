@@ -1,5 +1,6 @@
 package devices
 
+import Smart.IllegalArgument
 import Smart.SmartArtisticCamera
 import Smart.style
 import com.zeroc.Ice.Current
@@ -14,6 +15,8 @@ class SmartArtCameraI : SmartPTZCameraI(), SmartArtisticCamera {
 
     override fun setStyle(currentStyle: style?, current: Current?) {
         validateState()
-        this.style = currentStyle!!
+        if (currentStyle == null)
+            throw IllegalArgument("style cannot be null")
+        this.style = currentStyle
     }
 }
